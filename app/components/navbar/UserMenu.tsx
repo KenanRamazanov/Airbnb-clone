@@ -1,9 +1,13 @@
 "use client"
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from '../Avatar';
 
 const UserMenu = () => {
+  const [isopen,setIsOpen] = useState(false)
+  const toggleOpen = useCallback(() => {
+setIsOpen((value) => !value);
+  },[])
   return (
     <div className='relative'>
     <div className='flex 
@@ -23,7 +27,7 @@ const UserMenu = () => {
         cursor-pointer'>
     Airbnb your home 
       </div>
-      <div onClick={() =>{}}
+      <div onClick={toggleOpen}
        className='p-4 
        md:py-1 
        md:px-2 
