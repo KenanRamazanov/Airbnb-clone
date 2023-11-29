@@ -12,6 +12,7 @@ import {
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
+import Input from '../inputs/Input';
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -43,7 +44,12 @@ axios.post('/api/register', data)
   }
   const bodyContent = (
     <div className='flex flex-col gap-4'>
-    {/* <Heading/> */}
+    <Heading
+    title='Welcome to Airbnb'
+    subtitle='Create an account!'
+    center
+    />
+    <Input />
     </div>
   )
     
