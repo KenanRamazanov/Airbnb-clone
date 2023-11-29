@@ -11,6 +11,7 @@ import {
 } from "react-hook-form";
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
+import Heading from '../Heading';
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,12 @@ axios.post('/api/register', data)
       setIsLoading(false);
     })
   }
-  
+  const bodyContent = (
+    <div className='flex flex-col gap-4'>
+    <Heading/>
+    </div>
+  )
+    
   return (
 <Modal
 disabled={isLoading}
@@ -49,7 +55,7 @@ title='Register'
 actionLabel='Continue'
 onClose={registerModal.onClose}
 onSubmit={handleSubmit(onSubmit)}
-
+body={bodyContent}
 />
   )
 }
