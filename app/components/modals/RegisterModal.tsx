@@ -13,6 +13,7 @@ import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
+import toast from 'react-hot-toast';
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +37,7 @@ axios.post('/api/register', data)
       registerModal.onClose();
     })
     .catch((error) => {
-     console.log(error);
+   toast.error("Something went wrong")
     })
     .finally(() => {
       setIsLoading(false);
@@ -76,7 +77,9 @@ required
 
     </div>
   )
-    
+    const footerContent ={
+      
+    }
   return (
 <Modal
 disabled={isLoading}
