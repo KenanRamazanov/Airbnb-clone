@@ -53,10 +53,10 @@ axios.post('/api/register', data)
     <Input 
     id='email'
     label='Email'
-disabled={isLoading}
-register={register}
-errors={errors}
-required
+    disabled={isLoading}
+    register={register}
+    errors={errors}
+    required
 />
 <Input
         id="name"
