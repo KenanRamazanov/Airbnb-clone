@@ -5,8 +5,15 @@ import Avatar from '../Avatar';
 import MenuItem from './MenuItem';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import { signOut } from 'next-auth/react';
+import { SafeUser } from '@/app/types';
+interface UserMenuProps {
+  currentUser?: SafeUser | null
+}
 
-const UserMenu = () => {
+const UserMenu:React.FC<UserMenuProps> = ({
+  currentUser
+}) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal()
   const [isopen,setIsOpen] = useState(false)
@@ -64,6 +71,37 @@ setIsOpen((value) => !value);
       top-12 
       text-sm'>
         <div className='flex flex-col cursor-pointer'>
+          {currentUser ? (
+               <>
+               <MenuItem
+                onClick={() => {}}
+               label='My trips'
+               />
+                 <MenuItem
+               onClick={() => {}}
+               label='My favorites'
+               />
+                <MenuItem
+               onClick={() => {}}
+               label='My reservations'
+               />
+                <MenuItem
+               onClick={() => {}}
+               label='My properties'
+               />
+                 <MenuItem
+               onClick={() => {}}
+               label='Airbnb my home'
+               />
+               <hr />
+               <MenuItem
+               onClick={() => signOut()}
+               label='Logout'
+               />
+                </>
+          ) : (
+
+         
           <>
          <MenuItem
           onClick={loginModal.onOpen}
@@ -74,6 +112,7 @@ setIsOpen((value) => !value);
          label='Sign up'
          />
           </>
+           )}
         </div>
       </div>
     )}
