@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from './components/navbar/Navbar';
 import ClientOnly from './components/ClientOnly';
 import RegisterModal from './components/modals/RegisterModal';
+import LoginModal from './components/modals/LoginModal';
 import ToasterProvider from './providers/ToasterProvider';
 
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <ClientOnly>
           <ToasterProvider/>
           <RegisterModal/>
+          <LoginModal/>
         <Navbar/>
         </ClientOnly>
         {children}
