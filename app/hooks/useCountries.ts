@@ -1,16 +1,24 @@
-import { create } from 'zustand';
+import countries from 'world-countries';
 
-interface RentModalStore {
-  isOpen: boolean;
-  onOpen: () => void;
-  onClose: () => void;
-}
-
-const useRentModal = create<RentModalStore>((set) => ({
-  isOpen: false,
-  onOpen: () => set({ isOpen: true }),
-  onClose: () => set({ isOpen: false })
+const formattedCountries = countries.map((country) => ({
+  value: country.cca2,
+  label: country.name.common,
+  flag: country.flag,
+  latlng: country.latlng,
+  region: country.region,
 }));
 
+const useCountries = () => {
+  const getAll = () => formattedCountries;
 
-export default useRentModal;
+  const getByValue = (value: string) => {
+    return formattedCountries.find((item) => item.value === value);
+  }
+
+  return {
+    getAll,
+    getByValue
+  }
+};
+
+export default useCountries;
