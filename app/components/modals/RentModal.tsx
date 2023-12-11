@@ -12,6 +12,7 @@ import {
   } from 'react-hook-form';
 import { categories } from '../navbar/Categories';
 import CategoryInput from '../inputs/CategoryInput';
+import CountrySelect from '../inputs/CountrySelect';
 
 
 enum STEPS {
@@ -48,6 +49,15 @@ const {
       description: '',
     }
   });
+  const category = watch('category');
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldDirty: true,
+      shouldTouch: true,
+      shouldValidate: true
+    })
+  }
+
 const onBack = () => {
     setStep((value) =>  value - 1)
 };
@@ -71,7 +81,7 @@ return undefined
     return 'Back'
 },[step]); 
 
-const bodyContent = (
+let bodyContent = (
     <div className='flex flex-col gap-8 '>
      <Heading
       title="Which of these best describes your place?"
@@ -86,8 +96,9 @@ const bodyContent = (
             {categories.map((item) => (
             <div key={item.label} className='col-span-1'>
              <CategoryInput
-             onClick ={() => {}}
-             selected= {false}
+             onClick ={(category) =>
+                 {setCustomValue('category', category)}}
+             selected= {category === item.label}
              label={item.label}
              icon={item.icon}
              />
@@ -97,12 +108,22 @@ const bodyContent = (
      </div>
     </div>
 )
-
+ if(step === STEPS.LOCATION) {
+    bodyContent = (
+        <div className=' flex flex-col gap-8'>
+        <Heading
+         title="Where is your place located?"
+         subtitle="Help guests find you!"
+        />
+        <CountrySelect/>
+        </div>
+    )
+ }
   return (
     <Modal  
     isOpen={rentModal.isOpen}
     onClose={rentModal.onClose}
-    onSubmit={rentModal.onClose}
+    onSubmit={onNext}
     actionLabel={actionLabel}
     secondaryActionLabel={secondaryActionLabel}
     secondaryAction={step === STEPS.CATEGORY ? undefined : onBack}
