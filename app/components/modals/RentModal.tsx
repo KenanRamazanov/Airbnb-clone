@@ -15,6 +15,7 @@ import CategoryInput from '../inputs/CategoryInput';
 import CountrySelect from '../inputs/CountrySelect';
 import dynamic from 'next/dynamic';
 import Counter from '../inputs/Counter';
+import ImageUpload from '../inputs/ImageUpload';
 
 
 enum STEPS {
@@ -168,6 +169,18 @@ let bodyContent = (
         
     )
  }
+
+   if(step === STEPS.IMAGES) {
+    bodyContent = (
+        <div className='flex flex-col gap-8'>
+        <Heading
+          title="How would you describe your place?"
+          subtitle="Short and sweet works best!"
+        />
+        <ImageUpload/>
+        </div>
+    )
+   }
   return (
     <Modal  
     isOpen={rentModal.isOpen}
