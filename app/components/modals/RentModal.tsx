@@ -139,7 +139,10 @@ let bodyContent = (
          title="Share some basics about your place"
          subtitle="What amenitis do you have?"
        />
-       <Counter/>
+       <Counter
+       title="Guests" 
+       subtitle="How many guests do you allow?"
+       />
         </div>
     )
  }
