@@ -177,7 +177,10 @@ let bodyContent = (
           title="How would you describe your place?"
           subtitle="Short and sweet works best!"
         />
-        <ImageUpload/>
+        <ImageUpload
+         onChange={(value) => setCustomValue('imageSrc', value)}
+         value={imageSrc}
+        />
         </div>
     )
    }
