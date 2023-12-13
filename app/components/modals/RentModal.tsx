@@ -215,6 +215,14 @@ let bodyContent = (
         </div>
     )
    }
+if(step === STEPS.PRICE) {
+    bodyContent = (
+        <div className=''>
+
+        </div>
+    )
+}
+
   return (
     <Modal  
     isOpen={rentModal.isOpen}
