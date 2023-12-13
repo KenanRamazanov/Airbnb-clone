@@ -137,6 +137,7 @@ let bodyContent = (
     )
  }
 
+
  if(step === STEPS.INFO){
     bodyContent = (
         <div className='flex flex-col gap-8'>
@@ -181,6 +182,14 @@ let bodyContent = (
          onChange={(value) => setCustomValue('imageSrc', value)}
          value={imageSrc}
         />
+        </div>
+    )
+   }
+
+   if(step === STEPS.DESCRIPTION) {
+    bodyContent = (
+        <div className=''>
+
         </div>
     )
    }
