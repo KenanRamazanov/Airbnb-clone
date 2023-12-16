@@ -6,6 +6,7 @@ import { SafeUser } from '@/app/types';
 import { useRouter } from 'next/navigation';
 import useCountries from '@/app/hooks/useCountries';
 import { format } from 'date-fns';
+import HeartButton from '../HeartButton';
 
 interface ListingCardProps {
   data: Listing;
@@ -74,6 +75,12 @@ const location = getByValue(data.locationValue);
             src={data.imageSrc}
             alt="Listing"
           />
+          <div className='absolute top-3 right-3'>
+        <HeartButton
+          listingId={data.id} 
+          currentUser={currentUser}
+        />
+          </div>
     </div>
     </div>
     </div>
