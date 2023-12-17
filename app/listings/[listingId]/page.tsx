@@ -26,8 +26,8 @@ if(!listing) {
     <div>
      <ClientOnly>
         <ListingClient
-        // listing={listing}
-        // currentUser={currentUser}
+        listing={listing}
+        currentUser={currentUser}
         />
      </ClientOnly>
     </div>
