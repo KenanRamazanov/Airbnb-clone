@@ -4,7 +4,7 @@ import { Range } from "react-date-range";
 import Calendar from "../inputs/Calendar";
 interface ListingReservationProps{
     price: number;
-    dataRange: Range;
+    dateRange: Range;
     totalPrice: number;
     onChangeDate: (value: Range) => void;
     onSubmit: () => void;
@@ -13,7 +13,7 @@ interface ListingReservationProps{
 }
 const ListingReservation: React.FC<ListingReservationProps> = ({
     price,
-    dataRange,
+    dateRange,
     totalPrice,
     onChangeDate,
     onSubmit,
