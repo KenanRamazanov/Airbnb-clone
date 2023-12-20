@@ -97,7 +97,7 @@ setIsOpen((value) => !value);
                label='My favorites'
                />
                 <MenuItem
-               onClick={() => {}}
+               onClick={() => router.push('/reservations')}
                label='My reservations'
                />
                 <MenuItem
